@@ -1,27 +1,26 @@
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <ninjas></ninjas>
+    <app-header></app-header>
+    <app-ninjas></app-ninjas>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import ninjas from "./ninjas.vue"; //Register locally
+import header from "./components/header.vue";
+import footer from "./components/footer.vue";
+import ninjas from "./components/ninjas.vue";
 
 export default {
   components: {
-    ninjas: ninjas, //Register locally
+    "app-header": header, //header is already an HTML tag
+    "app-footer": footer,
+    "app-ninjas": ninjas,
   },
   data() {
-    return {
-      title: "Ninja App",
-    };
+    return {};
   },
 };
 </script>
 
-<style scoped>
-h1 {
-  color: blue;
-}
-</style>
+<style scoped></style>
