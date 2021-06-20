@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { bus } from "../main";
 export default {
   props: {
     title: {
@@ -15,6 +16,12 @@ export default {
     return {
       copyright: "Copyright 2021",
     };
+  },
+  created() {
+    //listen for bus
+    bus.$on("changeTitleBus", (data) => {
+      this.title = data;
+    });
   },
 };
 </script>

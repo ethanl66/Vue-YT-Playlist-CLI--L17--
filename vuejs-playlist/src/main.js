@@ -4,8 +4,13 @@ import App from "./App.vue";
 
 Vue.config.productionTip = false;
 
-//Vue.component("ninjas", Ninjas); //Register globally. Can be nested anywhere.
+export const bus = new Vue();
+
+/* new Vue({
+  render: (h) => h(App),
+}).$mount("#app"); */
 
 new Vue({
+  el: "#app",
   render: (h) => h(App),
-}).$mount("#app");
+});

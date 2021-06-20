@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { bus } from "../main";
 export default {
   props: {
     title: {
@@ -14,7 +15,8 @@ export default {
   data() {},
   methods: {
     changeTitle: function() {
-      this.$emit("changeTitle", "Vue Wizards"); //change event from child to parent
+      this.title = "Vue Wizards Bus"; //need to change this directly because we are not listening to the event here
+      bus.$emit("changeTitleBus", "Vue Wizards Bus");
     },
   },
 };

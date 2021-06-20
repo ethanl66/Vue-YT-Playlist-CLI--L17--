@@ -30,6 +30,29 @@ export default {
       this.ninjas.pop();
     },
   },
+
+  // LIFECYCLE HOOKS
+  beforeCreate() {
+    alert("beforeCreate");
+  },
+  created() {
+    alert("created");
+    //fetch data
+  },
+  beforeMount() {
+    alert("beforeMount");
+  },
+  mounted() {
+    alert("mounted");
+    //manipulate DOM once it's been mounted
+  },
+  beforeUpdate() {
+    alert("beforeUpdate");
+  },
+  updated() {
+    alert("updated");
+    //manipulate DOM
+  },
 };
 </script>
 
