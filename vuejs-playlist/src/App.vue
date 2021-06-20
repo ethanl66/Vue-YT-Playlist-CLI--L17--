@@ -1,9 +1,10 @@
 <template>
   <div>
-    <app-header></app-header>
+    <app-header v-bind:title="title"></app-header>
+    <!-- Passing title as prop-->
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
-    <!--PROP HERE-->
-    <app-footer></app-footer>
+
+    <app-footer v-bind:title="title"></app-footer>
   </div>
 </template>
 
@@ -28,6 +29,7 @@ export default {
         { name: "Kami", speciality: "Webpack", show: false },
         { name: "Yoshi", speciality: "Data Diggin", show: false },
       ],
+      title: "Root component title",
     };
   },
 };

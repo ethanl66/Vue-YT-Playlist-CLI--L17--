@@ -10,15 +10,15 @@
         <h3 v-show="ninja.show">{{ ninja.speciality }}</h3>
       </li>
     </ul>
+    <button v-on:click="deleteNinja">Delete Ninja</button>
   </div>
 </template>
 
 <script>
 export default {
-  //props: ["ninjas"], //recieve props
   props: {
     ninjas: {
-      type: Array, //validate type. Good for development
+      type: Array,
       required: true,
     },
   },
@@ -26,8 +26,8 @@ export default {
     return {};
   },
   methods: {
-    test: function() {
-      this.ninjas; //recieve props
+    deleteNinja: function() {
+      this.ninjas.pop();
     },
   },
 };
