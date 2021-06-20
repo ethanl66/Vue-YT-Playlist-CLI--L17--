@@ -11,14 +11,10 @@ export default {
       type: String,
     },
   },
-  data() {
-    /* return {
-      title: "Vue Ninjas",
-    }; */
-  },
+  data() {},
   methods: {
     changeTitle: function() {
-      this.title = "Vue Wizards"; //primitive types only update in this component
+      this.$emit("changeTitle", "Vue Wizards"); //change event from child to parent
     },
   },
 };

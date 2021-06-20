@@ -1,7 +1,11 @@
 <template>
   <div>
-    <app-header v-bind:title="title"></app-header>
-    <!-- Passing title as prop-->
+    <app-header
+      v-bind:title="title"
+      v-on:changeTitle="updateTitle($event)"
+    ></app-header
+    ><!-- Listen for event -->
+
     <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
 
     <app-footer v-bind:title="title"></app-footer>
@@ -31,6 +35,11 @@ export default {
       ],
       title: "Root component title",
     };
+  },
+  methods: {
+    updateTitle: function(updatedTitle) {
+      this.title = updatedTitle; //updated title passed from template parameter
+    },
   },
 };
 </script>
