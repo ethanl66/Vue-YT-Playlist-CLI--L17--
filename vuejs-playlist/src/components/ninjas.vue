@@ -15,9 +15,20 @@
 
 <script>
 export default {
-  props: ["ninjas"], //recieve props
+  //props: ["ninjas"], //recieve props
+  props: {
+    ninjas: {
+      type: Array, //validate type. Good for development
+      required: true,
+    },
+  },
   data() {
     return {};
+  },
+  methods: {
+    test: function() {
+      this.ninjas; //recieve props
+    },
   },
 };
 </script>
