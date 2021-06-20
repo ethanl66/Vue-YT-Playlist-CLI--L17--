@@ -1,47 +1,39 @@
 <template>
   <div>
-    <app-header
-      v-bind:title="title"
-      v-on:changeTitle="updateTitle($event)"
-    ></app-header
-    ><!-- Listen for event -->
+    <form-helper>
+      <!-- <h2 slot="titleSlot">{{ title }}</h2>
+      dynamic slot title
+      <p slot="textSlot">I am the paragaph text for the slot</p> -->
 
-    <app-ninjas v-bind:ninjas="ninjas"></app-ninjas>
+      <div slot="form-header">
+        <h3>This is the title of the form</h3>
+        <p>Information about the form</p>
+      </div>
 
-    <app-footer v-bind:title="title"></app-footer>
+      <div slot="form-fields">
+        <input type="text" placeholder="Name" required />
+        <input type="password" placeholder="Password" required />
+      </div>
+
+      <div slot="form-controls">
+        <button v-on:click="handleSubmit">Submit</button>
+      </div>
+    </form-helper>
   </div>
 </template>
 
 <script>
-import header from "./components/header.vue";
-import footer from "./components/footer.vue";
-import ninjas from "./components/ninjas.vue";
+import formHelper from "./components/formhelper.vue";
 
 export default {
   components: {
-    "app-header": header, //header is already an HTML tag
-    "app-footer": footer,
-    "app-ninjas": ninjas,
+    "form-helper": formHelper,
   },
   data() {
     return {
-      ninjas: [
-        { name: "Ryu", speciality: "Vue Components", show: false },
-        { name: "Crystal", speciality: "HTML Wizardry", show: false },
-        { name: "Hitoshi", speciality: "Click Events", show: false },
-        { name: "Tango", speciality: "Conditionals", show: false },
-        { name: "Kami", speciality: "Webpack", show: false },
-        { name: "Yoshi", speciality: "Data Diggin", show: false },
-      ],
-      title: "Root component title",
+      title: "I am a dynamic slot title", //dynamic slot title must be defined in the component that it is being outputted in.
     };
   },
-  methods: {
-    updateTitle: function(updatedTitle) {
-      this.title = updatedTitle; //updated title passed from template parameter
-    },
-  },
+  methods: {},
 };
 </script>
-
-<style scoped></style>
