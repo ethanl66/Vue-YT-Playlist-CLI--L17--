@@ -25,6 +25,8 @@
       <select v-model="blog.author">
         <option v-for="author in authors" :key="author"> {{ author }}</option>
       </select>
+
+      <button v-on:click.prevent="post">Add Blog</button>
     </form>
 
     <div id="preview">
@@ -64,7 +66,9 @@ export default {
       authors: ["The Net Ninja", "The Angular Avenger", "The Vue Vindicator"],
     };
   },
-  methods: {},
+  methods: {
+    post: function() {},
+  },
 };
 </script>
 
