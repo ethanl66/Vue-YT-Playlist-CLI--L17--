@@ -1,11 +1,14 @@
 <template>
   <div id="add-blog">
     <h2>Add a New Blog Post</h2>
+
     <form>
       <label>Blog Title:</label>
       <input type="text" v-model.lazy="blog.title" required />
+
       <label>Blog Content:</label>
       <textarea v-model.lazy="blog.content"></textarea>
+
       <div id="checkboxes">
         <label>Ninjas</label>
         <input type="checkbox" value="ninjas" v-model="blog.categories" />
@@ -17,6 +20,7 @@
         <label>Cheese</label>
         <input type="checkbox" value="cheese" v-model="blog.categories" />
       </div>
+
       <label>Author:</label>
       <select v-model="blog.author">
         <option v-for="author in authors" :key="author"> {{ author }}</option>
@@ -25,9 +29,12 @@
 
     <div id="preview">
       <h3>Preview Blog</h3>
+
       <p>Blog title: {{ blog.title }}</p>
+
       <p>Blog content:</p>
       <p>{{ blog.content }}</p>
+
       <p>Blog Categories:</p>
       <ul>
         <li
@@ -38,6 +45,7 @@
           {{ category }}
         </li>
       </ul>
+
       <p>Author: {{ blog.author }}</p>
     </div>
   </div>
